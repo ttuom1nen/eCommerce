@@ -48,7 +48,7 @@ const Directory = () => {
           key={id}
           title={title}
           imageUrl={imageUrl}
-          size={size || null}
+          size={size || ""}
         />
       ))}
     </div>
