@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import MenuItem from "../MenuItem/MenuItem";
-import { Section } from "./Directory.models";
+import { Section } from "../../models";
 import "./Directory.styles.scss";
 
 const sectionData: Section[] = [
