@@ -1,15 +1,18 @@
 import React from "react";
-import { ShopCollection, ShopItem } from "../../models";
-import "./CollectionPreview.scss";
+import CollectionItem from "../CollectionItem/CollectionItem";
+import { ShopCollection } from "../../models";
+import "./CollectionPreview.styles.scss";
 
-const PreviewCollection = ({ id, title, items, routeName }: ShopCollection) => {
+const PreviewCollection = ({ title, items }: ShopCollection) => {
   return (
     <div className="collection-preview">
       <h1 className="title">{title.toUpperCase()}</h1>
       <div className="preview">
-        {items.map((item: ShopItem) => (
-          <div key={item.id}>{item.name}</div>
-        ))}
+        {items
+          .filter((item, index) => index < 4)
+          .map(({ id, ...itemProps }) => (
+            <CollectionItem key={id} id={id} {...itemProps} />
+          ))}
       </div>
     </div>
   );
