@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import FormInput from "../FormInput/FormInput";
 import "./Signin.styles.scss";
 
 const Signin = () => {
@@ -12,28 +12,36 @@ const Signin = () => {
     setPassword("");
   };
 
+  const handleEmailChange = (event: React.FormEvent<HTMLInputElement>) => {
+    setEmail(event.currentTarget.value);
+  };
+
+  const handlePasswordChange = (event: React.FormEvent<HTMLInputElement>) => {
+    setPassword(event.currentTarget.value);
+  };
+
   return (
     <div className="sign-in">
       <h2>I already have an account</h2>
       <span>Sign in with your email and password</span>
 
       <form onSubmit={handleSubmit}>
-        <input
+        <FormInput
           name="email"
           type="email"
           value={email}
-          onChange={(event) => setEmail(event?.target.value)}
+          label="Email"
+          handleChange={handleEmailChange}
           required
         />
-        <label>Email</label>
-        <input
+        <FormInput
           name="password"
           type="password"
           value={password}
-          onChange={(event) => setPassword(event?.target.value)}
+          label="Password"
+          handleChange={handlePasswordChange}
           required
         />
-        <label>Password</label>
 
         <input type="submit" value="Submit Form" />
       </form>
