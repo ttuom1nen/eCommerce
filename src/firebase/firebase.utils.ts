@@ -2,6 +2,7 @@ import firebase from "firebase/app";
 import "firebase/firestore";
 import "firebase/auth";
 
+// This is safe for public
 const config = {
   apiKey: "AIzaSyBUVHOD6DvnujiDWbDyRwXapoDYjXBApeU",
   authDomain: "crwn-db-983c0.firebaseapp.com",

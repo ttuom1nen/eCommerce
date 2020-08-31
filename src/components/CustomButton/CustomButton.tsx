@@ -1,4 +1,4 @@
-import React, { ReactNode, SyntheticEvent } from "react";
+import React, { ReactNode } from "react";
 import "./CustomButton.styles.scss";
 
 interface Props {
