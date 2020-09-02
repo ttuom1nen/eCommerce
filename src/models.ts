@@ -19,3 +19,13 @@ export interface Section {
   id: number;
   linkUrl: string;
 }
+
+export interface User {
+  id?: string;
+  createdAt: {
+    seconds: number;
+    nanoseconds: number;
+  };
+  displayName: string;
+  email: string;
+}
