@@ -1,3 +1,5 @@
+import { Interface } from "readline";
+
 export interface ShopCollection {
   id: number;
   title: string;
@@ -28,4 +30,11 @@ export interface User {
   };
   displayName: string;
   email: string;
+}
+
+export interface SignUpInfo {
+  displayName: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
 }

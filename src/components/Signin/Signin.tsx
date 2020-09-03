@@ -4,9 +4,9 @@ import CustomButton from "../CustomButton/CustomButton";
 
 import { signInWithGoogle } from "../../firebase/firebase.utils";
 
-import "./Signin.styles.scss";
+import "./SignIn.styles.scss";
 
-const Signin = () => {
+const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -57,4 +57,4 @@ const Signin = () => {
   );
 };
 
-export default Signin;
+export default SignIn;
