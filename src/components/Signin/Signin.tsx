@@ -2,26 +2,34 @@ import React, { useState } from "react";
 import FormInput from "../FormInput/FormInput";
 import CustomButton from "../CustomButton/CustomButton";
 
-import { signInWithGoogle } from "../../firebase/firebase.utils";
+import { auth, signInWithGoogle } from "../../firebase/firebase.utils";
 
 import "./SignIn.styles.scss";
 
+const emptySignInInfo = {
+  email: "",
+  password: "",
+};
+
 const SignIn = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [signInInfo, setSignInInfo] = useState(emptySignInInfo);
 
-  const handleSubmit = (event: React.FormEvent) => {
+  const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-    setEmail("");
-    setPassword("");
+
+    const { email, password } = signInInfo;
+
+    try {
+      await auth.signInWithEmailAndPassword(email, password);
+      setSignInInfo(emptySignInInfo);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
-  const handleEmailChange = (event: React.FormEvent<HTMLInputElement>) => {
-    setEmail(event.currentTarget.value);
-  };
-
-  const handlePasswordChange = (event: React.FormEvent<HTMLInputElement>) => {
-    setPassword(event.currentTarget.value);
+  const handleChange = (event: React.FormEvent<HTMLInputElement>) => {
+    const { name, value } = event.currentTarget;
+    setSignInInfo({ ...signInInfo, ...{ [name]: value } });
   };
 
   return (
@@ -33,17 +41,17 @@ const SignIn = () => {
         <FormInput
           name="email"
           type="email"
-          value={email}
+          value={signInInfo.email}
           label="Email"
-          handleChange={handleEmailChange}
+          handleChange={handleChange}
           required
         />
         <FormInput
           name="password"
           type="password"
-          value={password}
+          value={signInInfo.password}
           label="Password"
-          handleChange={handlePasswordChange}
+          handleChange={handleChange}
           required
         />
         <div className="buttons">

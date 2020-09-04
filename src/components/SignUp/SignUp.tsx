@@ -35,7 +35,7 @@ const SignUp = () => {
       );
 
       await createUserProfileDocument(user, { displayName });
-      setSignInInfo({ ...emptyUserInfo });
+      setSignInInfo(emptyUserInfo);
     } catch (error) {
       console.error(error);
     }
