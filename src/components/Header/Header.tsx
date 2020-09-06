@@ -1,15 +1,16 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { ReactComponent as Logo } from "../../assets/crown.svg";
 import { auth } from "../../firebase/firebase.utils";
-import { User } from "../../models";
+import { User, StoreState } from "../../models";
 import "./Header.styles.scss";
 
-interface Props {
-  currentUser: User | null;
-}
+const Header: React.FC = () => {
+  const currentUser: User | null = useSelector(
+    (state: StoreState) => state.user.currentUser
+  );
 
-const Header: React.FC<Props> = ({ currentUser }) => {
   return (
     <header>
       <Link className="logo-container" to="/">

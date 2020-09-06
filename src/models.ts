@@ -38,3 +38,13 @@ export interface SignUpInfo {
   password: string;
   confirmPassword: string;
 }
+
+// Redux store state
+
+export interface StoreState {
+  user: UserState;
+}
+
+export interface UserState {
+  currentUser: User | null;
+}
