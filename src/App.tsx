@@ -1,17 +1,21 @@
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import HomePage from "./pages/HomePage/HomePage";
 import ShopPage from "./pages/ShopPage/ShopPage";
 import SigninPage from "./pages/SigninPage/SigninPage";
 import Header from "./components/Header/Header";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
-import { User } from "./models";
+import { User, StoreState } from "./models";
 import { setCurrentUser } from "./redux/user/user.actions";
 import "./App.css";
 
 function App() {
   const dispatch = useDispatch();
+
+  const currentUser: User | null = useSelector(
+    (state: StoreState) => state.user.currentUser
+  );
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(async (userAuth) => {
@@ -36,7 +40,11 @@ function App() {
       <Switch>
         <Route exact path="/" component={HomePage}></Route>
         <Route path="/shop" component={ShopPage}></Route>
-        <Route path="/signin" component={SigninPage}></Route>
+        <Route
+          exact
+          path="/signin"
+          render={() => (currentUser ? <Redirect to="/" /> : <SigninPage />)}
+        ></Route>
       </Switch>
     </div>
   );
