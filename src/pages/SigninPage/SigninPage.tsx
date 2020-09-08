@@ -5,9 +5,13 @@ import "./SigninPage.styles.scss";
 
 const SigninPage = () => {
   return (
-    <div className="signin">
-      <SignIn />
-      <SignUp />
+    <div className="sign-in-and-sign-up">
+      <div className="page-section">
+        <SignIn />
+      </div>
+      <div className="page-section">
+        <SignUp />
+      </div>
     </div>
   );
 };
