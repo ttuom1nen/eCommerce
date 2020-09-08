@@ -1,4 +1,5 @@
 import React from "react";
+import CartIcon from "../CartIcon/CartIcon";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { ReactComponent as Logo } from "../../assets/crown.svg";
@@ -32,6 +33,7 @@ const Header: React.FC = () => {
             SIGN IN
           </Link>
         )}
+        <CartIcon></CartIcon>
       </div>
     </header>
   );
