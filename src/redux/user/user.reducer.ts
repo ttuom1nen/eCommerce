@@ -1,7 +1,7 @@
-import { User } from "../../models";
-import { ActionTypes } from "../actionTypes";
+import { User, UserState } from "../../models";
+import { ActionTypes } from "./user.actions";
 
-const INITIAL_STATE = {
+const INITIAL_STATE: UserState = {
   currentUser: null,
 };
 
