@@ -43,8 +43,13 @@ export interface SignUpInfo {
 
 export interface StoreState {
   user: UserState;
+  cart: CartState;
 }
 
 export interface UserState {
   currentUser: User | null;
+}
+
+export interface CartState {
+  hidden: boolean;
 }
