@@ -9,6 +9,10 @@ import { User, StoreState } from "../../models";
 import "./Header.styles.scss";
 
 const Header: React.FC = () => {
+  const cartOpen: boolean = useSelector(
+    (state: StoreState) => state.cart.hidden
+  );
+
   const currentUser: User | null = useSelector(
     (state: StoreState) => state.user.currentUser
   );
@@ -36,7 +40,7 @@ const Header: React.FC = () => {
         )}
         <CartIcon />
       </div>
-      <CartDropdown />
+      {cartOpen ? <CartDropdown /> : null}
     </header>
   );
 };
