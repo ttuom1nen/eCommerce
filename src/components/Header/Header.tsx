@@ -8,7 +8,7 @@ import { auth } from "../../firebase/firebase.utils";
 import { User, StoreState } from "../../models";
 import "./Header.styles.scss";
 
-const Header: React.FC = () => {
+const Header = () => {
   const cartHidden: boolean = useSelector(
     (state: StoreState) => state.cart.hidden
   );
