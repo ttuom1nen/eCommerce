@@ -12,7 +12,7 @@ interface Action {
 
 const userReducer = (state = INITIAL_STATE, action: Action) => {
   switch (action.type) {
-    case ActionTypes.SET_CURRENT_USER:
+    case ActionTypes.USER_SET_CURRENT:
       return { ...state, currentUser: action.payload };
     default:
       return state;

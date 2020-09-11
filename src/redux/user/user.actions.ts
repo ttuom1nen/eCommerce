@@ -1,10 +1,10 @@
 import { User } from "../../models";
 
 export enum ActionTypes {
-  SET_CURRENT_USER = "SET_CURRENT_USER",
+  USER_SET_CURRENT = "USER_SET_CURRENT",
 }
 
 export const setCurrentUser = (user: User | null) => ({
-  type: ActionTypes.SET_CURRENT_USER,
+  type: ActionTypes.USER_SET_CURRENT,
   payload: user,
 });
