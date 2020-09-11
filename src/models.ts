@@ -52,4 +52,5 @@ export interface UserState {
 
 export interface CartState {
   hidden: boolean;
+  cartItems: ShopItem[];
 }
