@@ -1,14 +1,12 @@
-import { Interface } from "readline";
-
 export interface ShopCollection {
-  id: number;
+  id: string;
   title: string;
   routeName: string;
   items: ShopItem[];
 }
 
 export interface ShopItem {
-  id: number;
+  id: string;
   name: string;
   imageUrl: string;
   price: number;
@@ -52,5 +50,9 @@ export interface UserState {
 
 export interface CartState {
   hidden: boolean;
-  cartItems: ShopItem[];
+  cartItems: CartItem[];
+}
+
+export interface CartItem extends ShopItem {
+  quantity: number;
 }
