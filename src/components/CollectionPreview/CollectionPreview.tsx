@@ -3,7 +3,7 @@ import CollectionItem from "../CollectionItem/CollectionItem";
 import { ShopCollection } from "../../models";
 import "./CollectionPreview.styles.scss";
 
-const PreviewCollection = ({ title, items }: ShopCollection) => {
+const PreviewCollection: React.FC<ShopCollection> = ({ title, items }) => {
   return (
     <div className="collection-preview">
       <h1 className="title">{title.toUpperCase()}</h1>
