@@ -1,9 +1,9 @@
-import { ShopItem, CartItem } from "../../models";
+import { ShopItem, ShoppingCartItem } from "../../models";
 
 export const addItemToCart = (
-  cartItems: CartItem[],
+  cartItems: ShoppingCartItem[],
   itemToAdd: ShopItem
-): CartItem[] => {
+): ShoppingCartItem[] => {
   const existingCartItem = cartItems.find(
     (cartItem) => cartItem.id === itemToAdd.id
   );

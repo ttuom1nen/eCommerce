@@ -12,6 +12,10 @@ export interface ShopItem {
   price: number;
 }
 
+export interface ShoppingCartItem extends ShopItem {
+  quantity: number;
+}
+
 export interface Section {
   title: string;
   imageUrl: string;
@@ -50,9 +54,5 @@ export interface UserState {
 
 export interface CartState {
   hidden: boolean;
-  cartItems: CartItem[];
-}
-
-export interface CartItem extends ShopItem {
-  quantity: number;
+  cartItems: ShoppingCartItem[];
 }

@@ -1,5 +1,5 @@
 import { ActionTypes } from "./cart.actions";
-import { CartState, ShopItem, CartItem } from "../../models";
+import { CartState, ShopItem, ShoppingCartItem } from "../../models";
 import { addItemToCart } from "./cart.utils";
 
 const INITIAL_STATE: CartState = {
@@ -25,7 +25,7 @@ const toggleCart = (state: boolean, action: ToggleAction) => {
   }
 };
 
-const addToCart = (state: CartItem[], action: AddAction) => {
+const addToCart = (state: ShoppingCartItem[], action: AddAction) => {
   switch (action.type) {
     case ActionTypes.CART_ADD_ITEM:
       return addItemToCart(state, action.payload);
