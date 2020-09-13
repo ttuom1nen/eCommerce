@@ -3,7 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import HomePage from "./pages/HomePage/HomePage";
 import ShopPage from "./pages/ShopPage/ShopPage";
 import SigninPage from "./pages/SigninPage/SigninPage";
+import CheckoutPage from "./pages/CheckoutPage/CheckoutPage";
+
 import Header from "./components/Header/Header";
+
 import { Switch, Route, Redirect } from "react-router-dom";
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 import { User, StoreState } from "./models";
@@ -40,6 +43,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={HomePage}></Route>
         <Route path="/shop" component={ShopPage}></Route>
+        <Route path="/checkout" component={CheckoutPage}></Route>
         <Route
           exact
           path="/signin"
