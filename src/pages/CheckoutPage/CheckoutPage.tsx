@@ -1,11 +1,9 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { ShoppingCartItem, StoreState } from "../../models";
 import "./CheckoutPage.styles.scss";
 
 const CheckoutPage = () => {
-  const dispatch = useDispatch();
-
   const cartItems: ShoppingCartItem[] = useSelector(
     (state: StoreState) => state.cart.cartItems
   );
