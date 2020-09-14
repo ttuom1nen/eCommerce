@@ -1,6 +1,7 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { toggleCartHidden } from "../../redux/cart/cart.actions";
 import { ShoppingCartItem, StoreState } from "../../models";
 import CustomButton from "../CustomButton/CustomButton";
 import CartItem from "../CartItem/CartItem";
@@ -8,6 +9,8 @@ import CartItem from "../CartItem/CartItem";
 import "./CartDropdown.styles.scss";
 
 const CartDropdown: React.FC = () => {
+  const dispatch = useDispatch();
+
   const cartItems: ShoppingCartItem[] = useSelector(
     (state: StoreState) => state.cart.cartItems
   );
@@ -22,7 +25,9 @@ const CartDropdown: React.FC = () => {
             ))}
           </div>
           <Link to="/checkout">
-            <CustomButton>GO TO CHECKOUT</CustomButton>
+            <CustomButton onClick={() => dispatch(toggleCartHidden())}>
+              GO TO CHECKOUT
+            </CustomButton>
           </Link>
         </>
       ) : (
