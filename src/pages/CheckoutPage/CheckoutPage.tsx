@@ -1,4 +1,5 @@
 import React from "react";
+import CheckoutItem from "../../components/CheckoutItem/CheckoutItem";
 import { useSelector } from "react-redux";
 import { ShoppingCartItem, StoreState } from "../../models";
 import "./CheckoutPage.styles.scss";
@@ -27,6 +28,9 @@ const CheckoutPage = () => {
           <span>Remove</span>
         </div>
       </div>
+      {cartItems.map((cartItem) => (
+        <CheckoutItem cartItem={cartItem}></CheckoutItem>
+      ))}
 
       <div className="total">
         <span>
