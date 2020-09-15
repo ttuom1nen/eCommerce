@@ -11,9 +11,9 @@ interface ToggleAction {
   type: string;
 }
 
-interface AddAction {
+interface UpdateAction {
   type: string;
-  payload: ShopItem;
+  payload: ShopItem | ShoppingCartItem;
 }
 
 const toggleCart = (state: boolean, action: ToggleAction) => {
@@ -25,10 +25,13 @@ const toggleCart = (state: boolean, action: ToggleAction) => {
   }
 };
 
-const addToCart = (state: ShoppingCartItem[], action: AddAction) => {
+const updateCart = (state: ShoppingCartItem[], action: UpdateAction) => {
   switch (action.type) {
     case ActionTypes.CART_ADD_ITEM:
-      return addItemToCart(state, action.payload);
+      return addItemToCart(state, action.payload as ShopItem);
+    case ActionTypes.CART_REMOVE_ITEM:
+      console.log(action.payload);
+      return state.filter((cartItem) => cartItem.id !== action.payload.id);
     default:
       return state;
   }
@@ -36,10 +39,10 @@ const addToCart = (state: ShoppingCartItem[], action: AddAction) => {
 
 export const cartReducer = (
   state = INITIAL_STATE,
-  action: ToggleAction | AddAction
+  action: ToggleAction | UpdateAction
 ) => {
   return {
     hidden: toggleCart(state.hidden, action),
-    cartItems: addToCart(state.cartItems, action as AddAction),
+    cartItems: updateCart(state.cartItems, action as UpdateAction),
   };
 };
