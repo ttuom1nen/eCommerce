@@ -1,13 +1,19 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { ShoppingCartItem } from "../../models";
+import { removeItem } from "../../redux/cart/cart.actions";
+
+import "./CheckoutItem.styles.scss";
 
 interface Props {
   cartItem: ShoppingCartItem;
 }
 
-const CheckoutItem: React.FC<Props> = ({
-  cartItem: { name, imageUrl, price, quantity },
-}) => {
+const CheckoutItem: React.FC<Props> = ({ cartItem }) => {
+  const dispatch = useDispatch();
+
+  const { name, imageUrl, price, quantity } = cartItem;
+
   return (
     <div className="checkout-item">
       <div className="image-container">
@@ -16,7 +22,12 @@ const CheckoutItem: React.FC<Props> = ({
       <span className="name">{name}</span>
       <span className="quantity">{quantity}</span>
       <span className="price">{price}</span>
-      <div className="remove-button">&#10005;</div>
+      <div
+        className="remove-button"
+        onClick={() => dispatch(removeItem(cartItem))}
+      >
+        &#10005;
+      </div>
     </div>
   );
 };
