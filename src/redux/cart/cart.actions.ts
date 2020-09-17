@@ -4,6 +4,7 @@ export enum ActionTypes {
   CART_TOGGLE_HIDDEN = "CART_TOGGLE_HIDDEN",
   CART_ADD_ITEM = "CART_ADD_ITEM",
   CART_REMOVE_ITEM = "CART_REMOVE_ITEM",
+  CART_REDUCE_QUANTITY = "CART_REDUCE_QUANTITY",
 }
 
 export const toggleCartHidden = () => ({
@@ -17,5 +18,10 @@ export const addItem = (item: ShopItem) => ({
 
 export const removeItem = (item: ShoppingCartItem) => ({
   type: ActionTypes.CART_REMOVE_ITEM,
+  payload: item,
+});
+
+export const reduceQuantity = (item: ShoppingCartItem) => ({
+  type: ActionTypes.CART_REDUCE_QUANTITY,
   payload: item,
 });
