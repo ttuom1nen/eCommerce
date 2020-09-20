@@ -46,6 +46,8 @@ export interface SignUpInfo {
 export interface StoreState {
   user: UserState;
   cart: CartState;
+  directory: Section[];
+  shop: ShopState;
 }
 
 export interface UserState {
@@ -55,4 +57,8 @@ export interface UserState {
 export interface CartState {
   hidden: boolean;
   cartItems: ShoppingCartItem[];
+}
+
+export interface ShopState {
+  collections: ShopCollection[];
 }
