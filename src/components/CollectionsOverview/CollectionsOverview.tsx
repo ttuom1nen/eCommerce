@@ -1,6 +1,7 @@
 import React from "react";
 import CollectionPreview from "../CollectionPreview/CollectionPreview";
 import { useSelector } from "react-redux";
+
 import { StoreState } from "../../models";
 
 const CollectionsOverview = () => {
