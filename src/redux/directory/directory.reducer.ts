@@ -2,45 +2,41 @@ import { Section } from "../../models";
 
 const INITIAL_STATE: Section[] = [
   {
-    title: "hats",
+    title: "Hats",
     imageUrl: "https://i.ibb.co/cvpntL1/hats.png",
-    id: 1,
+    id: "074b4c9e-cda4-527b-a224-e03bca32426b",
     linkUrl: "shop/hats",
   },
   {
-    title: "jackets",
+    title: "Jackets",
     imageUrl: "https://i.ibb.co/px2tCc3/jackets.png",
-    id: 2,
+    id: "b1c0174c-026c-5cc4-9de9-9922aa0110ab",
     linkUrl: "shop/jackets",
   },
   {
-    title: "sneakers",
+    title: "Sneakers",
     imageUrl: "https://i.ibb.co/0jqHpnp/sneakers.png",
-    id: 3,
+    id: "552e3422-43ea-52f8-b5d0-360c3818fa10",
     linkUrl: "shop/sneakers",
   },
   {
-    title: "womens",
+    title: "Womens",
     imageUrl: "https://i.ibb.co/GCCdy8t/womens.png",
     size: "large",
-    id: 4,
+    id: "2efeded0-1780-59ba-98b9-b5d19e38a712",
     linkUrl: "shop/womens",
   },
   {
-    title: "mens",
+    title: "Mens",
     imageUrl: "https://i.ibb.co/R70vBrQ/men.png",
     size: "large",
-    id: 5,
+    id: "990f91a6-933d-5db1-84ed-5d2ddcb62c11",
     linkUrl: "shop/mens",
   },
 ];
 
 const directoryReducer = (state = INITIAL_STATE) => {
   return state;
-  // switch (action.type) {
-  //   default:
-  //     return state;
-  // }
 };
 
 export default directoryReducer;
