@@ -5,6 +5,10 @@ export interface ShopCollection {
   items: ShopItem[];
 }
 
+export interface ShopData {
+  [key: string]: ShopCollection;
+}
+
 export interface ShopItem {
   id: string;
   name: string;
@@ -60,7 +64,7 @@ export interface CartState {
 }
 
 export interface ShopState {
-  collections: ShopCollection[];
+  collections: ShopData;
 }
 
 export interface DirectoryState {
