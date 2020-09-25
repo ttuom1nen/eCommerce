@@ -2,11 +2,14 @@ import React from "react";
 import CollectionPreview from "../CollectionPreview/CollectionPreview";
 import { useSelector } from "react-redux";
 
-import { StoreState } from "../../models";
+import { StoreState, ShopCollection } from "../../models";
 
 const CollectionsOverview = () => {
-  const collections = useSelector(
-    (state: StoreState) => state.shop.collections
+  const collections: ShopCollection[] = useSelector((state: StoreState) =>
+    Object.keys(state.shop.collections).map((key) => {
+      console.log(key);
+      return state.shop.collections[key];
+    })
   );
 
   return (
