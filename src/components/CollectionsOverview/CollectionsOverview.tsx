@@ -7,7 +7,6 @@ import { StoreState, ShopCollection } from "../../models";
 const CollectionsOverview = () => {
   const collections: ShopCollection[] = useSelector((state: StoreState) =>
     Object.keys(state.shop.collections).map((key) => {
-      console.log(key);
       return state.shop.collections[key];
     })
   );

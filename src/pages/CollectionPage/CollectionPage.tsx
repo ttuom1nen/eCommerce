@@ -10,8 +10,6 @@ interface Params {
   collectionTitle: string;
 }
 
-/* Map product section name to collection Id */
-
 const CollectionPage = ({ match }: RouteComponentProps) => {
   const { collectionTitle } = useParams<Params>();
 
