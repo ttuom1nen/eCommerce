@@ -6,7 +6,11 @@ import { ShoppingCartItem, StoreState } from "../../models";
 import CustomButton from "../CustomButton/CustomButton";
 import CartItem from "../CartItem/CartItem";
 
-import "./CartDropdown.styles.scss";
+import {
+  ShoppingCartDropdown,
+  CartItems,
+  EmptyMessage,
+} from "./CartDropdown.styles";
 
 const CartDropdown: React.FC = () => {
   const dispatch = useDispatch();
@@ -16,14 +20,14 @@ const CartDropdown: React.FC = () => {
   );
 
   return (
-    <div className="cart-dropdown">
+    <ShoppingCartDropdown>
       {cartItems.length ? (
         <>
-          <div className="cart-items">
+          <CartItems>
             {cartItems.map((cartItem) => (
               <CartItem key={cartItem.id} item={cartItem}></CartItem>
             ))}
-          </div>
+          </CartItems>
           <Link to="/checkout">
             <CustomButton onClick={() => dispatch(toggleCartHidden())}>
               GO TO CHECKOUT
@@ -31,9 +35,9 @@ const CartDropdown: React.FC = () => {
           </Link>
         </>
       ) : (
-        <span className="empty-message">Your cart is empty</span>
+        <EmptyMessage>Your cart is empty</EmptyMessage>
       )}
-    </div>
+    </ShoppingCartDropdown>
   );
 };
 
