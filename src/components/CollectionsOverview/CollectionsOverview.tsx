@@ -4,6 +4,8 @@ import { useSelector } from "react-redux";
 
 import { StoreState, ShopCollection } from "../../models";
 
+import { CollectionsOverviewContainer } from "./CollectionsOverview.styles";
+
 const CollectionsOverview = () => {
   const collections: ShopCollection[] = useSelector((state: StoreState) =>
     Object.keys(state.shop.collections).map((key) => {
@@ -12,11 +14,11 @@ const CollectionsOverview = () => {
   );
 
   return (
-    <div className="collections-overview">
+    <CollectionsOverviewContainer>
       {collections.map((collection) => (
         <CollectionPreview key={collection.id} {...collection} />
       ))}
-    </div>
+    </CollectionsOverviewContainer>
   );
 };
 
