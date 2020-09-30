@@ -2,7 +2,8 @@ import React from "react";
 import MenuItem from "../MenuItem/MenuItem";
 import { useSelector } from "react-redux";
 import { StoreState, Section } from "../../models";
-import "./Directory.styles.scss";
+
+import { DirectoryMenuContainer } from "./Directory.styles";
 
 const Directory = () => {
   const sections: Section[] = useSelector(
@@ -10,11 +11,11 @@ const Directory = () => {
   );
 
   return (
-    <div className="directory-menu">
+    <DirectoryMenuContainer>
       {sections.map(({ id, ...otherSectionProps }) => (
         <MenuItem key={id} {...otherSectionProps} />
       ))}
-    </div>
+    </DirectoryMenuContainer>
   );
 };
 
