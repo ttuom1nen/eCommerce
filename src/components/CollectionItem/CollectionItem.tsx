@@ -5,6 +5,15 @@ import { addItem } from "../../redux/cart/cart.actions";
 import { ShopItem } from "../../models";
 import "./CollectionItem.styles.scss";
 
+import {
+  CollectionItemContainer,
+  CollectionFooterContainer,
+  AddButton,
+  BackgroundImage,
+  NameContainer,
+  PriceContainer,
+} from "./CollectionItem.styles";
+
 interface Props {
   item: ShopItem;
 }
@@ -19,16 +28,16 @@ const CollectionItem: React.FC<Props> = ({ item }) => {
   };
 
   return (
-    <div className="collection-item">
-      <div className="image" style={{ backgroundImage: `url(${imageUrl})` }} />
-      <div className="footer">
-        <span className="name">{name}</span>
-        <span className="price">{price}</span>
-      </div>
-      <CustomButton onClick={handleAddItem} inverted>
+    <CollectionItemContainer>
+      <BackgroundImage className="image" imageUrl={imageUrl} />
+      <CollectionFooterContainer>
+        <NameContainer>{name}</NameContainer>
+        <PriceContainer>{price}</PriceContainer>
+      </CollectionFooterContainer>
+      <AddButton onClick={handleAddItem} inverted>
         Add to cart
-      </CustomButton>
-    </div>
+      </AddButton>
+    </CollectionItemContainer>
   );
 };
 
