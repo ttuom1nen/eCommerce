@@ -1,9 +1,8 @@
 import React from "react";
-import CustomButton from "../CustomButton/CustomButton";
+// import CustomButton from "../CustomButton/CustomButton";
 import { useDispatch } from "react-redux";
 import { addItem } from "../../redux/cart/cart.actions";
 import { ShopItem } from "../../models";
-import "./CollectionItem.styles.scss";
 
 import {
   CollectionItemContainer,
@@ -29,7 +28,7 @@ const CollectionItem: React.FC<Props> = ({ item }) => {
 
   return (
     <CollectionItemContainer>
-      <BackgroundImage className="image" imageUrl={imageUrl} />
+      <BackgroundImage imageUrl={imageUrl} />
       <CollectionFooterContainer>
         <NameContainer>{name}</NameContainer>
         <PriceContainer>{price}</PriceContainer>

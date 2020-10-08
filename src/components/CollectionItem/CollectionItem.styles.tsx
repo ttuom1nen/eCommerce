@@ -27,13 +27,13 @@ export const AddButton = styled(CustomButton)`
   display: none;
 `;
 
-export const BackgroundImage = styled.div`
+export const BackgroundImage = styled.div<{ imageUrl: string }>`
   width: 100%;
   height: 95%;
   background-size: cover;
   background-position: center;
   margin-bottom: 5px;
-  background-image: ${(imageUrl) => `url(${imageUrl})`};
+  background-image: ${({ imageUrl }) => `url(${imageUrl})`};
 `;
 
 // ${({ imageUrl }) => `url(${imageUrl})`};
