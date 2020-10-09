@@ -6,6 +6,8 @@ import CustomButton from "../CustomButton/CustomButton";
 import { auth, createUserProfileDocument } from "../../firebase/firebase.utils";
 import { SignUpInfo } from "../../models";
 
+import { SignUpContainer, SignUpTitle } from './SignUp.styles';
+
 const emptyUserInfo: SignUpInfo = {
   displayName: "",
   email: "",
@@ -47,8 +49,8 @@ const SignUp = () => {
   };
 
   return (
-    <div className="sign-up">
-      <h2 className="title">I do not have an account</h2>
+    <SignUpContainer>
+      <SignUpTitle>I do not have an account</SignUpTitle>
       <span>Sign up with your email and password</span>
       <form className="sign-up-form" onSubmit={handleSubmit}>
         <FormInput
@@ -85,7 +87,7 @@ const SignUp = () => {
         />
         <CustomButton type="submit">Sign Up</CustomButton>
       </form>
-    </div>
+    </SignUpContainer>
   );
 };
 
