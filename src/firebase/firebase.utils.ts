@@ -1,6 +1,7 @@
 import firebase from "firebase/app";
 import "firebase/firestore";
 import "firebase/auth";
+import { ShopItem } from "../models";
 
 // This is safe for public
 const config = {
@@ -35,6 +36,20 @@ export const createUserProfileDocument = async (
 
   return userRef;
 };
+
+// This function was used to enter the shop data into firebase
+export const addCollectionAndDocuments = async (collectionKey: string, objectsToAdd: {title: string, items: ShopItem[]}[]) => {
+  const collectionRef = firestore.collection(collectionKey);
+
+  const batch = firestore.batch();
+
+  objectsToAdd.forEach(obj => {
+    const newDocRef = collectionRef.doc()
+    batch.set(newDocRef, obj)
+  })
+
+  batch.commit()
+}
 
 firebase.initializeApp(config);
 

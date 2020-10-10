@@ -11,6 +11,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 import { User, StoreState } from "./models";
 import { setCurrentUser } from "./redux/user/user.actions";
+
 import "./App.css";
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
   );
 
   useEffect(() => {
+
     const unsubscribe = auth.onAuthStateChanged(async (userAuth) => {
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth, {});
