@@ -1,7 +1,7 @@
 import firebase from "firebase/app";
 import "firebase/firestore";
 import "firebase/auth";
-import { ShopItem } from "../models";
+import { ShopItem, ShopCollection } from "../models";
 
 // This is safe for public
 const config = {
@@ -38,20 +38,43 @@ export const createUserProfileDocument = async (
 };
 
 // This function was used to enter the shop data into firebase
-export const addCollectionAndDocuments = async (collectionKey: string, objectsToAdd: {title: string, items: ShopItem[]}[]) => {
+export const addCollectionAndDocuments = async (
+  collectionKey: string,
+  objectsToAdd: { title: string; items: ShopItem[] }[]
+) => {
   const collectionRef = firestore.collection(collectionKey);
 
   const batch = firestore.batch();
 
-  objectsToAdd.forEach(obj => {
-    const newDocRef = collectionRef.doc()
-    batch.set(newDocRef, obj)
-  })
+  objectsToAdd.forEach((obj) => {
+    const newDocRef = collectionRef.doc();
+    batch.set(newDocRef, obj);
+  });
 
-  batch.commit()
-}
+  batch.commit();
+};
 
 firebase.initializeApp(config);
+
+// TODO: Find a way to remove any
+export const convertCollectionsSnapshotToMap = (collections: any) => {
+
+  const transformedCollection = collections.docs.map((doc: any) => {
+    const { title, items } = doc.data();
+    return {
+      routeName: encodeURI(title.toLowerCase()),
+      id: doc.id,
+      title,
+      items,
+    };
+  });
+
+  return transformedCollection.reduce((accumulator: any, collection: ShopCollection) => {
+    accumulator[collection.title.toLowerCase()] = collection;
+    return accumulator;
+  }, {});
+  
+};
 
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
