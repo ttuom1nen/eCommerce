@@ -32,4 +32,4 @@ const ShopPage = ({ match }: RouteComponentProps) => {
   );
 };
 
-export default ShopPage;
+export default React.memo(ShopPage);

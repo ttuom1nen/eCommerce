@@ -23,4 +23,4 @@ const PreviewCollection: React.FC<ShopCollection> = ({ title, items }) => {
   );
 };
 
-export default PreviewCollection;
+export default React.memo(PreviewCollection);

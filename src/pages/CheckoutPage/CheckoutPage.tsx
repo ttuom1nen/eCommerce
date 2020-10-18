@@ -46,4 +46,4 @@ const CheckoutPage = () => {
   );
 };
 
-export default CheckoutPage;
+export default React.memo(CheckoutPage);

@@ -43,4 +43,4 @@ const CheckoutItem: React.FC<Props> = ({ cartItem }) => {
   );
 };
 
-export default CheckoutItem;
+export default React.memo(CheckoutItem);

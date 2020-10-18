@@ -27,4 +27,4 @@ const CartItem: React.FC<Props> = ({
   );
 };
 
-export default CartItem;
+export default React.memo(CartItem);

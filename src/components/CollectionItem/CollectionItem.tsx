@@ -40,4 +40,4 @@ const CollectionItem: React.FC<Props> = ({ item }) => {
   );
 };
 
-export default CollectionItem;
+export default React.memo(CollectionItem);

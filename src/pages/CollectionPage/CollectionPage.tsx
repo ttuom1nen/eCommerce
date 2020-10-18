@@ -13,8 +13,8 @@ interface Params {
 const CollectionPage = ({ match }: RouteComponentProps) => {
   const { collectionTitle } = useParams<Params>();
 
-  const collection: ShopCollection | undefined = useSelector(
-    (state: StoreState) => state.shop.collections[collectionTitle]
+  const collection: ShopCollection | null = useSelector(
+    (state: StoreState) => state.shop.collections ? state.shop.collections[collectionTitle] : null
   );
 
   return (

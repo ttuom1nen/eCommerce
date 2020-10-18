@@ -41,4 +41,4 @@ const MenuItem = ({
   );
 };
 
-export default withRouter(MenuItem);
+export default React.memo(withRouter(MenuItem));
