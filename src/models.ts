@@ -64,7 +64,7 @@ export interface CartState {
 }
 
 export interface ShopState {
-  collections: ShopData;
+  collections: ShopData | null;
 }
 
 export interface DirectoryState {

@@ -6,12 +6,18 @@ import { StoreState, ShopCollection } from "../../models";
 
 import { CollectionsOverviewContainer } from "./CollectionsOverview.styles";
 
-const CollectionsOverview = () => {
-  const collections: ShopCollection[] = useSelector((state: StoreState) =>
-    Object.keys(state.shop.collections).map((key) => {
-      return state.shop.collections[key];
+const convertMapToArray = (collections: any) => {
+  if(collections){
+    return Object.keys(collections).map((key) => {
+      return collections[key];
     })
-  );
+  }
+
+  return []
+}
+
+const CollectionsOverview = () => {
+  const collections: ShopCollection[] | [] = useSelector((state: StoreState) => convertMapToArray(state.shop.collections));
 
   return (
     <CollectionsOverviewContainer>
@@ -22,4 +28,4 @@ const CollectionsOverview = () => {
   );
 };
 
-export default CollectionsOverview;
+export default React.memo(CollectionsOverview);
