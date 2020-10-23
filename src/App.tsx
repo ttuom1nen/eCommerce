@@ -34,7 +34,9 @@ function App() {
       } else {
         dispatch(setCurrentUser(null));
       }
-    });
+      
+    }, error => console.error(error));
+    
     return () => unsubscribe();
   }, [dispatch]);
 
