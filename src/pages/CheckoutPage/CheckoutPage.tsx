@@ -8,7 +8,6 @@ import {
   CheckoutHeaderContainer,
   HeaderBlockContainer,
   TotalContainer,
-  WarningContainer
 } from './CheckoutPage.styles';
 
 const CheckoutPage = () => {
