@@ -66,6 +66,7 @@ export interface CartState {
 export interface ShopState {
   fetching: boolean;
   collections: ShopData | null;
+  errorMessage: string;
 }
 
 export interface DirectoryState {
