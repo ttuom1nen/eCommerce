@@ -1,9 +1,5 @@
 import { Dispatch } from "redux";
 import { ShopData } from "../../models";
-import {
-  firestore,
-  convertCollectionsSnapshotToMap,
-} from "../../firebase/firebase.utils";
 
 export enum ActionTypes {
   FETCH_COLLECTIONS_START = "FETCH_COLLECTIONS_START",
@@ -29,13 +25,5 @@ export const fetchCollectionsStartAsync = () => {
   return async (dispatch: Dispatch) => {
     dispatch(fetchCollectionsStart());
 
-    const collectionRef = firestore.collection("collections");
-    collectionRef
-      .get()
-      .then((snapshot) => {
-        const collectionsMap = convertCollectionsSnapshotToMap(snapshot);
-        dispatch(fetchCollectionsSuccess(collectionsMap));
-      })
-      .catch((error) => dispatch(fetchCollectionsFailure(error)));
   };
 };

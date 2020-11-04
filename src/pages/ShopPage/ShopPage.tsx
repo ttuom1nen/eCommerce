@@ -3,7 +3,7 @@ import CollectionsOverview from "../../components/CollectionsOverview/Collection
 import CollectionPage from "../CollectionPage/CollectionPage";
 import Spinner from "../../components/Spinner/Spinner";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchCollectionsStartAsync } from "../../redux/shop/shop.actions";
+import { fetchCollectionsStart } from "../../redux/shop/shop.actions";
 import { Route } from "react-router-dom";
 import { RouteComponentProps } from "react-router-dom";
 import { StoreState } from "../../models";
@@ -13,7 +13,7 @@ const ShopPage = ({ match }: RouteComponentProps) => {
   const loading = useSelector((state: StoreState) => state.shop.fetching);
 
   useEffect(() => {
-    dispatch(fetchCollectionsStartAsync())
+    dispatch(fetchCollectionsStart())
   }, [dispatch])
 
   return (
