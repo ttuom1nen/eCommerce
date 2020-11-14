@@ -33,6 +33,8 @@ const updateCart = (state: ShoppingCartItem[], action: UpdateAction) => {
       return state.filter((cartItem) => cartItem.id !== action.payload.id);
     case ActionTypes.CART_REDUCE_QUANTITY:
       return reduceItemQuantity(state, action.payload as ShoppingCartItem);
+    case ActionTypes.CART_CLEAR:
+      return [];
     default:
       return state;
   }
