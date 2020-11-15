@@ -3,17 +3,33 @@ import { ActionTypes } from "./user.actions";
 
 const INITIAL_STATE: UserState = {
   currentUser: null,
+  error: null,
 };
 
-interface Action {
+interface SetUserAction {
   type: string;
   payload: User | null;
 }
 
-const userReducer = (state = INITIAL_STATE, action: Action) => {
+interface SetFailureStateAction {
+  type: string;
+  payload: string | null;
+}
+
+const userReducer = (state = INITIAL_STATE, action: SetUserAction | SetFailureStateAction) => {
   switch (action.type) {
-    case ActionTypes.USER_SET_CURRENT:
-      return { ...state, currentUser: action.payload };
+    case ActionTypes.SIGN_IN_SUCCESS:
+      return { ...state, currentUser: (action as SetUserAction).payload };
+    case ActionTypes.SIGN_OUT_SUCCESS:
+      return {
+        ...state,
+        currentUser: null,
+        error: null,
+      }
+    case ActionTypes.SIGN_OUT_FAILURE:
+    case ActionTypes.SIGN_IN_FAILURE:
+    case ActionTypes.SIGN_UP_FAILURE:
+      return {...state, error: (action as SetFailureStateAction).payload}
     default:
       return state;
   }
