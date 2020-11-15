@@ -1,9 +1,8 @@
 import React from "react";
 import CartIcon from "../CartIcon/CartIcon";
 import CartDropdown from "../CartDropdown/CartDropdown";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { ReactComponent as Logo } from "../../assets/crown.svg";
-import { auth } from "../../firebase/firebase.utils";
 import { User, StoreState } from "../../models";
 import {
   HeaderContainer,
@@ -12,7 +11,11 @@ import {
   OptionLink,
 } from "./Header.style";
 
+import { signOutStart } from "../../redux/user/user.actions";
+
 const Header = () => {
+  const dispatch = useDispatch();
+
   const cartHidden: boolean = useSelector(
     (state: StoreState) => state.cart.hidden
   );
@@ -30,7 +33,7 @@ const Header = () => {
         <OptionLink to="/shop">SHOP</OptionLink>
         <OptionLink to="/shop">CONTACT</OptionLink>
         {currentUser ? (
-          <OptionLink as="div" onClick={() => auth.signOut()}>
+          <OptionLink as="div" onClick={() => dispatch(signOutStart())}>
             SIGN OUT
           </OptionLink>
         ) : (
