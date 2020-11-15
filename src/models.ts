@@ -56,6 +56,7 @@ export interface StoreState {
 
 export interface UserState {
   currentUser: User | null;
+  error: string | null;
 }
 
 export interface CartState {
