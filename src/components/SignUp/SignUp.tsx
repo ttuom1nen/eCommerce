@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-
+import { useDispatch } from 'react-redux'
 import FormInput from "../FormInput/FormInput";
 import CustomButton from "../CustomButton/CustomButton";
-
-import { auth, createUserProfileDocument } from "../../firebase/firebase.utils";
+import { signUpStart } from '../../redux/user/user.actions'
 import { SignUpInfo } from "../../models";
 
 import { SignUpContainer, SignUpTitle } from './SignUp.styles';
@@ -16,6 +15,7 @@ const emptyUserInfo: SignUpInfo = {
 };
 
 const SignUp = () => {
+  const dispatch = useDispatch()
   const [signUpInfo, setSignInInfo] = useState(emptyUserInfo);
 
   const handleSubmit = async (event: React.FormEvent) => {
@@ -30,17 +30,8 @@ const SignUp = () => {
       return;
     }
 
-    try {
-      const { user } = await auth.createUserWithEmailAndPassword(
-        email,
-        password
-      );
-
-      await createUserProfileDocument(user, { displayName });
-      setSignInInfo(emptyUserInfo);
-    } catch (error) {
-      console.error(error);
-    }
+    // Note: confirmPassword is not needed here. It's just convenient to reuse the signUpInfo interface
+    dispatch(signUpStart({displayName, email, password, confirmPassword}))
   };
 
   const handleChange = (event: React.FormEvent<HTMLInputElement>) => {
