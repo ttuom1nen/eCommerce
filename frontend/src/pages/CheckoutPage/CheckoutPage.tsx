@@ -1,8 +1,9 @@
 import React from "react";
+import axios from "axios";
 import CheckoutItem from "../../components/CheckoutItem/CheckoutItem";
+import CustomButton from '../../components/CustomButton/CustomButton'
 import { useSelector } from "react-redux";
 import { ShoppingCartItem, StoreState } from "../../models";
-import axios from "axios";
 
 import {
   CheckoutPageContainer,
@@ -66,7 +67,7 @@ const CheckoutPage = () => {
       <TotalContainer>
         <span>TOTAL: {price}$</span>
       </TotalContainer>
-      <button onClick={handlePay}>Buy Now</button>
+      <CustomButton onClick={handlePay}>Buy Now</CustomButton>
     </CheckoutPageContainer>
   );
 };
