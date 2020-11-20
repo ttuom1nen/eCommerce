@@ -34,4 +34,6 @@ app.post("/payment", (req: Request, res: Response) => {
   }
 
   res.status(200).send({success: body})
+
+  console.log(`Payment: ${JSON.stringify(body)}`)
 })
