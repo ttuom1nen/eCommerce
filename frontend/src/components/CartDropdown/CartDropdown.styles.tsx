@@ -20,9 +20,16 @@ export const CartItems = styled.div`
   flex-direction: column;
   overflow-y: auto;
   overflow-x: hidden;
+  margin-bottom: 20px;
 `;
 
 export const EmptyMessage = styled.span`
   font-size: 18px;
   margin: 50px auto;
+`;
+
+export const CheckoutButtonContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;

@@ -10,6 +10,7 @@ import {
   ShoppingCartDropdown,
   CartItems,
   EmptyMessage,
+  CheckoutButtonContainer,
 } from "./CartDropdown.styles";
 
 const CartDropdown: React.FC = () => {
@@ -28,11 +29,13 @@ const CartDropdown: React.FC = () => {
               <CartItem key={cartItem.id} item={cartItem}></CartItem>
             ))}
           </CartItems>
-          <Link to="/checkout">
-            <CustomButton onClick={() => dispatch(toggleCartHidden())}>
-              GO TO CHECKOUT
-            </CustomButton>
-          </Link>
+          <CheckoutButtonContainer>
+            <Link to="/checkout">
+              <CustomButton onClick={() => dispatch(toggleCartHidden())}>
+                GO TO CHECKOUT
+              </CustomButton>
+            </Link>
+          </CheckoutButtonContainer>
         </>
       ) : (
         <EmptyMessage>Your cart is empty</EmptyMessage>
