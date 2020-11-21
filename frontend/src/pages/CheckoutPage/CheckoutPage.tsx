@@ -67,7 +67,7 @@ const CheckoutPage = () => {
       <TotalContainer>
         <span>TOTAL: {price}$</span>
       </TotalContainer>
-      <CustomButton onClick={handlePay}>Buy Now</CustomButton>
+      <CustomButton onClick={handlePay}>Pay Now</CustomButton>
     </CheckoutPageContainer>
   );
 };
