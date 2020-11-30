@@ -24,6 +24,5 @@ export const fetchCollectionsFailure = (errorMessage: string) => ({
 export const fetchCollectionsStartAsync = () => {
   return async (dispatch: Dispatch) => {
     dispatch(fetchCollectionsStart());
-
   };
 };

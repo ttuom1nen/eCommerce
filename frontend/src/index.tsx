@@ -10,7 +10,7 @@ import { createStore, applyMiddleware, compose } from "redux";
 import { Provider } from "react-redux";
 import rootReducer from "./redux/rootReducer";
 import { loadState, saveState } from "./localStorage.utils";
-import rootSaga from './redux/rootSaga'
+import rootSaga from "./redux/rootSaga";
 
 const sagaMiddleWare = createSagaMiddleware();
 
@@ -25,7 +25,7 @@ const store = createStore(
   composeEnhancers(applyMiddleware(sagaMiddleWare))
 );
 
-sagaMiddleWare.run(rootSaga)
+sagaMiddleWare.run(rootSaga);
 
 store.subscribe(
   throttle(() => {
