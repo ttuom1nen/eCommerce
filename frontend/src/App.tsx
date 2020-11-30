@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import HomePage from "./pages/HomePage/HomePage";
 import ShopPage from "./pages/ShopPage/ShopPage";
@@ -11,22 +11,22 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import { User, StoreState } from "./models";
 import { checkUserSession } from "./redux/user/user.actions";
 
-
-import "./App.css";
+import { GlobalStyle } from "./global.styles";
 
 function App() {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const currentUser: User | null = useSelector(
     (state: StoreState) => state.user.currentUser
   );
 
   useEffect(() => {
-    dispatch(checkUserSession())
-  }, [dispatch])
+    dispatch(checkUserSession());
+  }, [dispatch]);
 
   return (
     <div>
+      <GlobalStyle />
       <Header />
       <Switch>
         <Route exact path="/" component={HomePage}></Route>
