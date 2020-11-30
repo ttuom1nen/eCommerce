@@ -16,7 +16,7 @@ interface UpdateAction {
   payload: ShopItem | ShoppingCartItem;
 }
 
-const toggleCart = (state: boolean, action: ToggleAction) => {
+export const toggleCart = (state: boolean, action: ToggleAction) => {
   switch (action.type) {
     case ActionTypes.CART_TOGGLE_HIDDEN:
       return !state;
