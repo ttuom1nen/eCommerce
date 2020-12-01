@@ -31,7 +31,7 @@ function App() {
       <GlobalStyle />
       <Header />
       <Switch>
-        <Suspense fallback={<Spinner></Spinner>}>
+        <Suspense fallback={<Spinner />}>
           <Route exact path="/" component={HomePage}></Route>
           <Route path="/shop" component={ShopPage}></Route>
           <Route path="/checkout" component={CheckoutPage}></Route>
