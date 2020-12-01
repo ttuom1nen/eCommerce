@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { SCREEN_SIZE_SMALL } from "../../defaultTokens";
 
 export const MenuItemContainer = styled.div<{ size: string }>`
   height: ${({ size }) => (size ? "380px" : "240px")};
@@ -29,7 +30,7 @@ export const MenuItemContainer = styled.div<{ size: string }>`
     margin-left: 7.5px;
   }
 
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: ${SCREEN_SIZE_SMALL}) {
     height: 200px;
   }
 `;
