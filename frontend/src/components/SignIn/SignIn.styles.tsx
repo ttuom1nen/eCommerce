@@ -1,9 +1,14 @@
-import styled from 'styled-components';
+import styled from "styled-components";
+import { SCREEN_SIZE_SMALL } from "../../defaultTokens";
 
 export const SignInContainer = styled.div`
   width: 380px;
   display: flex;
   flex-direction: column;
+
+  @media screen and (max-width: ${SCREEN_SIZE_SMALL}) {
+    width: 100%;
+  }
 `;
 
 export const SignInTitle = styled.h2`

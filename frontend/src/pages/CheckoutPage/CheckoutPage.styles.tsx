@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import styled from "styled-components";
+import { SCREEN_SIZE_SMALL } from "../../defaultTokens";
 
 export const CheckoutPageContainer = styled.div`
   width: 55%;
@@ -10,6 +11,11 @@ export const CheckoutPageContainer = styled.div`
   button {
     margin-left: auto;
     margin-top: 50px;
+  }
+
+  @media screen and (max-width: ${SCREEN_SIZE_SMALL}) {
+    width: 90%;
+    margin: 0 auto;
   }
 `;
 
