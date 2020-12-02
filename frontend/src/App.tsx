@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import Header from "./components/Header/Header";
 import Spinner from "./components/Spinner/Spinner";
+import ErrorBoundary from "./components/ErrorBoundary/ErrorBoundary";
 
 import { Switch, Route, Redirect } from "react-router-dom";
 import { User, StoreState } from "./models";
@@ -31,16 +32,20 @@ function App() {
       <GlobalStyle />
       <Header />
       <Switch>
-        <Suspense fallback={<Spinner />}>
-          <Route exact path="/" component={HomePage}></Route>
-          <Route path="/shop" component={ShopPage}></Route>
-          <Route path="/checkout" component={CheckoutPage}></Route>
-          <Route
-            exact
-            path="/signin"
-            render={() => (currentUser ? <Redirect to="/" /> : <SigninPage />)}
-          ></Route>
-        </Suspense>
+        <ErrorBoundary>
+          <Suspense fallback={<Spinner />}>
+            <Route exact path="/" component={HomePage}></Route>
+            <Route path="/shop" component={ShopPage}></Route>
+            <Route path="/checkout" component={CheckoutPage}></Route>
+            <Route
+              exact
+              path="/signin"
+              render={() =>
+                currentUser ? <Redirect to="/" /> : <SigninPage />
+              }
+            ></Route>
+          </Suspense>
+        </ErrorBoundary>
       </Switch>
     </div>
   );
