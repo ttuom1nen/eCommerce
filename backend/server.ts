@@ -6,18 +6,21 @@ import path from "path";
 import enforce from "express-sslify";
 
 // loads .env file
-if (process.env.NODE_ENV !== "production") require("dotenv").config();
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
 
 const app = express();
 const port = process.env.PORT || 5000;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-// Setting trustProtoHeader: true is for reverse proxies
-app.use(enforce.HTTPS({ trustProtoHeader: true }));
 app.use(cors());
 
 if (process.env.NODE_ENV === "production") {
+  // Setting trustProtoHeader: true is for reverse proxies
+  app.use(enforce.HTTPS({ trustProtoHeader: true }));
+
   // __dirname is part of node.js, it is the current directory
   app.use(express.static(path.join(__dirname, "../frontend/build")));
 
